@@ -1,9 +1,10 @@
 #include <iostream>
-#include "Contact.class.hpp"
+#include "Contact.hpp"
 #include <iomanip>
 
-Contact contacts[8];
-int contact_index = 0;
+const int	max_contacts = 8;
+Contact		contacts[max_contacts];
+int			contact_index = 0;
 
 bool isRunning = true;
 
@@ -87,20 +88,20 @@ void show_contacts() {
     int         index;
     show_row("index", "first name", "last name", "nickname");
     for (int i = 0; i < contact_index; i++) {
-        show_row(std::to_string(i), contacts[i].getFirstName(), contacts[i].getLastName(), contacts[i].getNickName());
+        show_row(std::to_string(i + 1), contacts[i].getFirstName(), contacts[i].getLastName(), contacts[i].getNickName());
     }
 
     std::cout << "contact index: ";
     std::cin >> input;
     if (isdigit(input[0])) {
         index = std::stoi(input);
-        if (index >= 0 && index < contact_index) {
-            show_contact(index);
+        if (index > 0 && index <= contact_index) {
+            show_contact(index - 1);
         } else {
-            std::cout << "contact index " << index << " is not valid" << std::endl;
+            std::cout << "contact index " << index << " is not valid!" << std::endl;
         }
     } else {
-        std::cout << "contact index is not valid" << std::endl;
+        std::cout << "contact index is not valid!" << std::endl;
     }
 }
 
@@ -110,18 +111,22 @@ void check_input() {
 				<< "CMD: ";
     std::cin >> cmd;
     if (cmd == "ADD") {
-        add_contact();
-        std::cout << contacts[Contact::getCount() - 1].getDarkestSecret() << std::endl;
-    } else if (cmd == "SEARCH") {
+		if (contact_index >= max_contacts)
+			std::cout << "You can't have more than " << max_contacts << " contacts!" << std::endl;
+        else {
+			add_contact();
+        	std::cout << contacts[Contact::getCount() - 1].getDarkestSecret() << std::endl;
+		}
+	} else if (cmd == "SEARCH") {
         if (contact_index > 0) {
             show_contacts();
         } else {
-            std::cout << "" << std::endl;
+            std::cout << "You have no contacts!" << std::endl;
         }
-    } else if (cmd == "EXIT") {
+    } else if (cmd == "EXIT" || std::cin.eof()) {
         std::cout << "Bye!" << std::endl;
         isRunning = false;
-    }
+	}
 }
 
 int main( void ) {

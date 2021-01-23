@@ -3,10 +3,10 @@
 
 int main( void ) {
 
-    std::cout << "Before Stack" << std::endl;
+    std::cout << "\tBefore Stack" << std::endl;
     ponyOnTheStack();
-    std::cout << "After Stack && Before Heap" << std::endl;
+    std::cout << "\tAfter Stack && Before Heap" << std::endl;
     ponyOnTheHeap();
-    std::cout << "After Heap" << std::endl;
+    std::cout << "\tAfter Heap" << std::endl;
     return 0;
 }

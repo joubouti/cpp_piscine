@@ -1,5 +1,5 @@
-#ifndef CONTACT_CLASS_HPP
-# define CONTACT_CLASS_HPP
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
 #include <string>
 
 class Contact {
@@ -16,9 +16,10 @@ private:
     std::string _underwearColor;
     std::string _darkestSecret;
     static int  _count;
-
 public:
     Contact();
+    ~Contact();
+
     void setFirstName(std::string firstName);
     void setLastName(std::string lastName);
     void setNickName(std::string nickName);
@@ -31,8 +32,8 @@ public:
     void setUnderwearColor(std::string underwearColor);
     void setDarkestSecret(std::string darkestSecret);
 
-    static int getCount();
-    std::string getFirstName() const;
+    static int	getCount();
+    std::string	getFirstName() const;
     std::string getLastName() const;
     std::string getNickName() const;
     std::string getLogin() const;
@@ -43,8 +44,6 @@ public:
     std::string getFavoriteMeal() const;
     std::string getUnderwearColor() const;
     std::string getDarkestSecret() const;
-
-     
 };
 
 #endif

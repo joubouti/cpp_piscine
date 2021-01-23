@@ -1,9 +1,13 @@
-#include "Contact.class.hpp"
+#include "Contact.hpp"
 
 int 	Contact::_count = 0;
 
 Contact::Contact() {
     _count++;
+}
+
+Contact::~Contact() {
+    _count--;
 }
 
 int Contact::getCount() {

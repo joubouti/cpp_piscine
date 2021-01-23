@@ -2,9 +2,10 @@
 #include <iostream>
 
 Zombie::Zombie() {
+    std::cout << "Zombie Created" << std::endl;
 }
 
-Zombie::Zombie(std::string name, std::string type) : _name(name), _type(type) {
+Zombie::Zombie(const std::string name,const std::string type) : _name(name), _type(type) {
     std::cout << "Zombie " << name << " Created" << std::endl;
 }
 

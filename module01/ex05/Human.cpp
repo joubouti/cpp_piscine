@@ -1,17 +1,16 @@
 #include "Human.hpp"
 #include <iostream>
-#include <iomanip>
 
 Human::Human(){
+	std::cout << "Human constructor" << std::endl;
 }
 
 Human::~Human() {
+	std::cout << "Human destructor" << std::endl;
 }
 
 std::string Human::identify() const {
-    std::stringstream ss;
-    ss << &_brain;
-    return ss.str();
+    return _brain.identify();
 }
 
 const Brain&      Human::getBrain() const {

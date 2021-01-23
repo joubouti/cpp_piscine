@@ -7,16 +7,16 @@ int main( void ) {
     Zombie zombie1("CREEPER", "Walkers");
     Zombie zombie2("GEEK", "Runners");
     
-    zombie1.anounce();
-    zombie2.anounce();
+    zombie1.announce();
+    zombie2.announce();
 
     // Heap Zombies
 
     Zombie* zombie3 = new Zombie("LAMEBRAINS", "Ghouls");
     Zombie* zombie4 = new Zombie("ZOZO", "BrainEater");
 
-    zombie3->anounce();
-    zombie4->anounce();
+    zombie3->announce();
+    zombie4->announce();
 
     delete zombie3;
     delete zombie4;
@@ -32,8 +32,8 @@ int main( void ) {
     Zombie* firstScreamer = zombieEvent.newZombie("Houston");
     Zombie* secondScreamer = zombieEvent.newZombie("Mullen");
 
-    firstScreamer->anounce();
-    secondScreamer->anounce();
+    firstScreamer->announce();
+    secondScreamer->announce();
 
     delete firstScreamer;
     delete secondScreamer;
@@ -43,8 +43,8 @@ int main( void ) {
     Zombie* thirdScreamer = zombieEvent.randomChump();
     Zombie* fourthScreamer = zombieEvent.randomChump();
     
-    thirdScreamer->anounce();
-    fourthScreamer->anounce();
+    thirdScreamer->announce();
+    fourthScreamer->announce();
 
     delete thirdScreamer;
     delete fourthScreamer;

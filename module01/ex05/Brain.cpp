@@ -1,11 +1,13 @@
 #include "Brain.hpp"
-#include <iomanip>
 #include <iostream>
+#include <sstream>
 
 Brain::Brain() {
+	std::cout << "Brain constructor" << std::endl;
 }
 
 Brain::~Brain() {
+	std::cout << "Brain destructor" << std::endl;
 }
 
 

@@ -2,23 +2,24 @@
 
 int main() {
 
-    SuperTrap ft1;
-    SuperTrap ft2("SUP3R-TP");
+    SuperTrap   st1;
+    NinjaTrap   nt;
+    FragTrap    ft;
+    SuperTrap   st2("SUP3R-TP");
 
-    ft1 = ft2;
+    st1 = st2;
 
-    ft1.meleeAttack("Skag");
-    ft2.rangedAttack("Drifter");
+    st1.meleeAttack("Skag");
+    st2.rangedAttack("Drifter");
 
-    ft1.takeDamage(55);
-    ft1.takeDamage(55);
-    ft1.beRepaired(90);
-    ft1.beRepaired(25);
+    st1.takeDamage(55);
+    st1.takeDamage(55);
+    st1.beRepaired(90);
+    st1.beRepaired(25);
 
-    ft2.vaulthunter_dot_exe("Bandit");
-    ft2.vaulthunter_dot_exe("Bandit");
-    ft2.vaulthunter_dot_exe("Bandit");
-    ft2.vaulthunter_dot_exe("Bandit");
-    ft2.vaulthunter_dot_exe("Bandit");
+    st2.vaulthunter_dot_exe("Bandit");
+    st2.vaulthunter_dot_exe("Bandit");
+    st2.ninjaShoebox(nt);
+    st2.ninjaShoebox(ft);
     return 0;
 }

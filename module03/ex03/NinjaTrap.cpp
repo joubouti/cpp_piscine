@@ -3,23 +3,23 @@
 
 NinjaTrap::NinjaTrap() : ClapTrap("N1NJ4-TP", 60, 60, 120, 120, 1, 60, 5, 0)
 {
-    std::cout << "<" << _name << ">: Look out everybody! Things are about to get awesome!" << std::endl;
+    std::cout << "<" << _name << ">: Recompiling my combat code!" << std::endl;
 }
 
 NinjaTrap::NinjaTrap(std::string const & name) : ClapTrap(name, 60, 60, 120, 120, 1, 60, 5, 0)
 {
-    std::cout << "<" << name << ">: Look out everybody! Things are about to get awesome!" << std::endl;
+    std::cout << "<" << name << ">: Recompiling my combat code!" << std::endl;
 }
 
 NinjaTrap::NinjaTrap(NinjaTrap const & ft)
 {
     *this = ft;
-	std::cout << "<" << _name << ">: Look out everybody! Things are about to get awesome!" << std::endl;
+	std::cout << "<" << _name << ">: Recompiling my combat code!" << std::endl;
 }
 
 NinjaTrap::~NinjaTrap()
 {
-    std::cout << "<" << _name << ">: Are you god? Am I dead?" << std::endl;
+    std::cout << "<" << _name << ">: I'll stop talking when I'm dead!" << std::endl;
 }
 
 NinjaTrap&   NinjaTrap::operator=(NinjaTrap const & ft)
@@ -40,84 +40,33 @@ NinjaTrap&   NinjaTrap::operator=(NinjaTrap const & ft)
 
 void	NinjaTrap::rangedAttack(std::string const & target)
 {
-    std::cout << "Bop! FR4G-TP <" << _name << "> attacks <" << target << "> at range, causing "
-              << _ranged_attack_damage << " points of damage !" << std::endl;
+    std::cout << "N1NJ4-TP <" << _name << "> attacks <" << target << "> at range, causing "
+              << _ranged_attack_damage << " points of damage ! WOW! I hit 'em!" << std::endl;
     
 }
 
 void	NinjaTrap::meleeAttack(std::string const & target)
 {
-    std::cout << "Shwing! FR4G-TP <" << _name << "> attacks <" << target << "> at melee, causing "
-              << _melee_attack_damage << " points of damage !" << std::endl;
-
+    std::cout << "N1NJ4-TP <" << _name << "> attacks <" << target << "> at melee, causing "
+              << _melee_attack_damage << " points of damage ! Heyyah!" << std::endl;
 }
 
 void    NinjaTrap::ninjaShoebox(NinjaTrap const & target)
 {
-    const int chl_len = 5;
-    const std::string challenge[chl_len] =
-	{
-		"wear sandle all day",
-		"sneeze with your mouth closed",
-		"eat apple with bread",
-		"eat spagete with your fingers"
-    };
+	std::cout << "<" << _name << "> uses ninjaShoebox on NinjaTrap <" << target.getName() << ">: Give us open ports for remote access or give us death!" << std::endl;
+}
 
-
-	if (_energy_points >= 25)
-	{
-		_energy_points -= 25;
-		int rand_chl = rand() % chl_len;
-		std::cout << "<" << _name << "> challenges <"
-				  << target.getName() << "> to " << challenge[rand_chl] << " (" << _energy_points << "/" << _max_energy_points << ")" << std::endl;
-	} else {
-		std::cout << "<" << _name << "> Don't Have Enough Energy Points" << std::endl;
-	}
+void    NinjaTrap::ninjaShoebox(ClapTrap const & target)
+{
+	std::cout << "<" << _name << "> uses ninjaShoebox on ClapTrap <" << target.getName() << ">: Ha ha ha! Fall before your robot overlord!" << std::endl;
 }
 
 void    NinjaTrap::ninjaShoebox(FragTrap const & target)
 {
-    const int chl_len = 5;
-    const std::string challenge[chl_len] =
-	{
-		"wear sandle all day",
-		"sneeze with your mouth closed",
-		"eat apple with bread",
-		"eat spagete with your fingers"
-    };
-
-
-	if (_energy_points >= 25)
-	{
-		_energy_points -= 25;
-		int rand_chl = rand() % chl_len;
-		std::cout << "<" << _name << "> challenges <"
-				  << target.getName() << "> to " << challenge[rand_chl] << " (" << _energy_points << "/" << _max_energy_points << ")" << std::endl;
-	} else {
-		std::cout << "<" << _name << "> Don't Have Enough Energy Points" << std::endl;
-	}
+	std::cout << "<" << _name << "> uses ninjaShoebox on FragTrap <" << target.getName() << ">: I am rubber, and you are so dead!" << std::endl;
 }
 
 void    NinjaTrap::ninjaShoebox(ScavTrap const & target)
 {
-    const int chl_len = 5;
-    const std::string challenge[chl_len] =
-	{
-		"wear sandle all day",
-		"sneeze with your mouth closed",
-		"eat apple with bread",
-		"eat spagete with your fingers"
-    };
-
-
-	if (_energy_points >= 25)
-	{
-		_energy_points -= 25;
-		int rand_chl = rand() % chl_len;
-		std::cout << "<" << _name << "> challenges <"
-				  << target.getName() << "> to " << challenge[rand_chl] << " (" << _energy_points << "/" << _max_energy_points << ")" << std::endl;
-	} else {
-		std::cout << "<" << _name << "> Don't Have Enough Energy Points" << std::endl;
-	}
+	std::cout << "<" << _name << "> uses ninjaShoebox on ScavTrap <" << target.getName() << ">: Let me teach you the ways of magic!" << std::endl;
 }
-

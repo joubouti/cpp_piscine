@@ -1,7 +1,6 @@
 #include "FragTrap.hpp"
 
 int main() {
-
     FragTrap ft1;
     FragTrap ft2("CL4P-TP");
 

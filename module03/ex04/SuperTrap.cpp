@@ -3,23 +3,23 @@
 
 SuperTrap::SuperTrap() : ClapTrap("SUPER-TP", 100, 100, 120, 120, 1, 60, 20, 5)
 {
-    std::cout << "<" << _name << ">: Look out everybody! Things are about to get awesome!" << std::endl;
+    std::cout << "<" << _name << ">: Hey everybody! Check out my package!" << std::endl;
 }
 
 SuperTrap::SuperTrap(std::string const & name) : ClapTrap(name, 100, 100, 120, 120, 1, 60, 20, 5)
 {
-    std::cout << "<" << name << ">: Look out everybody! Things are about to get awesome!" << std::endl;
+    std::cout << "<" << name << ">: Hey everybody! Check out my package!" << std::endl;
 }
 
 SuperTrap::SuperTrap(SuperTrap const & ft)
 {
     *this = ft;
-	std::cout << "<" << _name << ">: Look out everybody! Things are about to get awesome!" << std::endl;
+	std::cout << "<" << _name << ">: Hey everybody! Check out my package!" << std::endl;
 }
 
 SuperTrap::~SuperTrap()
 {
-    std::cout << "<" << _name << ">: Are you god? Am I dead?" << std::endl;
+    std::cout << "<" << _name << ">: I don't feel so good!" << std::endl;
 }
 
 SuperTrap&   SuperTrap::operator=(SuperTrap const & ft)

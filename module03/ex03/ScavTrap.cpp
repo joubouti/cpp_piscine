@@ -40,37 +40,26 @@ ScavTrap&   ScavTrap::operator=(ScavTrap const & ft)
 
 void	ScavTrap::rangedAttack(std::string const & target)
 {
-    std::cout << "Bop! FR4G-TP <" << _name << "> attacks <" << target << "> at range, causing "
-              << _ranged_attack_damage << " points of damage !" << std::endl;
-    
+    std::cout << "SC4V-TP <" << _name << "> attacks <" << target << "> at range, causing "
+              << _ranged_attack_damage << " points of damage ! Bop!" << std::endl;
 }
 
 void	ScavTrap::meleeAttack(std::string const & target)
 {
-    std::cout << "Shwing! FR4G-TP <" << _name << "> attacks <" << target << "> at melee, causing "
-              << _melee_attack_damage << " points of damage !" << std::endl;
-
+    std::cout << "SC4V-TP <" << _name << "> attacks <" << target << "> at melee, causing "
+              << _melee_attack_damage << " points of damage ! Shwing!" << std::endl;
 }
 
 void    ScavTrap::challengeNewcomer(std::string const & target)
 {
-    const int chl_len = 5;
+    const int chl_len = 3;
     const std::string challenge[chl_len] =
 	{
-		"wear sandle all day",
-		"sneeze with your mouth closed",
-		"eat apple with bread",
-		"eat spagete with your fingers"
+        "Make corona virus cure",
+        "Win rock paper scissors",
+        "Make him laugh",
     };
-
-
-	if (_energy_points >= 25)
-	{
-		_energy_points -= 25;
-		int rand_chl = rand() % chl_len;
-		std::cout << "<" << _name << "> challenges <"
-				  << target << "> to " << challenge[rand_chl] << " (" << _energy_points << "/" << _max_energy_points << ")" << std::endl;
-	} else {
-		std::cout << "<" << _name << "> Don't Have Enough Energy Points" << std::endl;
-	}
+    int rand_chl = rand() % chl_len;
+    std::cout << "<" << _name << "> challenges <"
+                << target << "> to " << challenge[rand_chl] << std::endl;
 }

@@ -5,12 +5,12 @@
 const std::string	vdx[VDX_LEN] = {"Clap-In-The-Box", "Gun Wizard", "Torgue Fiesta", "Pirate Ship Mode",
 "One Shot Wonder", "Laser Inferno", "Shhhh... Trap!", "Meat Unicycle", "Funzerker", "Rubber Ducky"};
 
-FragTrap::FragTrap() : ClapTrap("FR4G-TP", 100, 100, 100, 100, 1, 30, 20, 3)
+FragTrap::FragTrap() : ClapTrap("FR4G-TP", 100, 100, 100, 100, 1, 30, 20, 5)
 {
     std::cout << "<" << _name << ">: Let's get this party started!" << std::endl;
 }
 
-FragTrap::FragTrap(std::string const & name) : ClapTrap(name, 100, 100, 100, 100, 1, 30, 20, 3)
+FragTrap::FragTrap(std::string const & name) : ClapTrap(name, 100, 100, 100, 100, 1, 30, 20, 5)
 {
     std::cout << "<" << name << ">: Let's get this party started!" << std::endl;
 }
@@ -44,16 +44,14 @@ FragTrap&   FragTrap::operator=(FragTrap const & ft)
 
 void	FragTrap::rangedAttack(std::string const & target)
 {
-    std::cout << "That looks like it hurts! FR4G-TP <" << _name << "> attacks <" << target << "> at range, causing "
-              << _ranged_attack_damage << " points of damage !" << std::endl;
-    
+    std::cout << "FR4G-TP <" << _name << "> attacks <" << target << "> at range, causing "
+              << _ranged_attack_damage << " points of damage ! " << "That looks like it hurts!" << std::endl;
 }
 
 void	FragTrap::meleeAttack(std::string const & target)
 {
-    std::cout << "Take that Heyyah! FR4G-TP <" << _name << "> attacks <" << target << "> at melee, causing "
-              << _melee_attack_damage << " points of damage !" << std::endl;
-
+    std::cout << "FR4G-TP <" << _name << "> attacks <" << target << "> at melee, causing "
+              << _melee_attack_damage << " points of damage ! " << "Take that Heyyah!" << std::endl;
 }
 
 void    FragTrap::vaulthunter_dot_exe(std::string const & target)

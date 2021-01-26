@@ -28,11 +28,9 @@ public:
 
     ClapTrap&   operator=(ClapTrap const & clapTrap);
 
-    // void        rangedAttack(std::string const & target);
-    // void        meleeAttack(std::string const & target);
     void        takeDamage(uint amount);
     void        beRepaired(uint amount);
-    // void        vaulthunter_dot_exe(std::string const & target);
+    std::string getName() const;
 };
 
 

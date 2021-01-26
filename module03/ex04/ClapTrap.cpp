@@ -1,7 +1,8 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap()
+ClapTrap::ClapTrap() : _name("CL4P-TP")
 {
+	std::cout << "ClapTrap Default Constructor Called" << std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap const & ct)
@@ -17,10 +18,9 @@ ClapTrap::ClapTrap(std::string const & name, uint hit_points, uint max_hit_point
     std::cout << "ClapTrap Constructor Called" << std::endl;
 }
 
-
 ClapTrap::~ClapTrap()
 {
-    std::cout << "<" << _name << ">: I'M DEAD I'M DEAD OHMYGOD I'M DEAD!" << std::endl;
+    std::cout << "ClapTrap Destructor Called!" << std::endl;
 }
 
 ClapTrap&   ClapTrap::operator=(ClapTrap const & ct)
@@ -38,7 +38,6 @@ ClapTrap&   ClapTrap::operator=(ClapTrap const & ct)
     std::cout << "ClapTrap Assignation operator called" << std::endl;
 	return (*this);
 }
-
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
@@ -60,7 +59,6 @@ void	ClapTrap::beRepaired(unsigned int amount)
 
     std::cout << "<" << _name << "> +" << amount << " hit points (" << _hit_points << "/" << _max_hit_points << ")" << std::endl;
 }
-
 
 std::string ClapTrap::getName() const {
     return _name;

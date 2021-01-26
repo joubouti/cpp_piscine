@@ -5,22 +5,25 @@
 const std::string	vdx[VDX_LEN] = {"Clap-In-The-Box", "Gun Wizard", "Torgue Fiesta", "Pirate Ship Mode",
 "One Shot Wonder", "Laser Inferno", "Shhhh... Trap!", "Meat Unicycle", "Funzerker", "Rubber Ducky"};
 
-FragTrap::FragTrap() :  _name("FR4G-TP"), _hit_points(100), _max_hit_points(100), _energy_points(50), _max_energy_points(50),
-                        _level(1), _melee_attack_damage(20), _ranged_attack_damage(15),
-                        _armor_damage_reduction(3)
+FragTrap::FragTrap() :  _name("FR4G-TP"), _hit_points(100), _max_hit_points(100), _energy_points(100), _max_energy_points(100),
+                        _level(1), _melee_attack_damage(30), _ranged_attack_damage(20),
+                        _armor_damage_reduction(5)
 {
+    std::srand(time(0));
     std::cout << "<" << _name << ">: Let's get this party started!" << std::endl;
 }
 
-FragTrap::FragTrap(std::string const & name) : _name("FR4G-TP"), _hit_points(100), _max_hit_points(100), _energy_points(50), _max_energy_points(50),
-                        _level(1), _melee_attack_damage(20), _ranged_attack_damage(15),
-                        _armor_damage_reduction(3)
+FragTrap::FragTrap(std::string const & name) : _name(name), _hit_points(100), _max_hit_points(100), _energy_points(100), _max_energy_points(100),
+                        _level(1), _melee_attack_damage(30), _ranged_attack_damage(20),
+                        _armor_damage_reduction(5)
 {
+    std::srand(time(0));
     std::cout << "<" << name << ">: Let's get this party started!" << std::endl;
 }
 
 FragTrap::FragTrap(FragTrap const & ft)
 {
+    std::srand(time(0));
     *this = ft;
 	std::cout << "<" << _name << ">: Let's get this party started!" << std::endl;
 }
@@ -48,16 +51,14 @@ FragTrap&   FragTrap::operator=(FragTrap const & ft)
 
 void	FragTrap::rangedAttack(std::string const & target)
 {
-    std::cout << "That looks like it hurts! FR4G-TP <" << _name << "> attacks <" << target << "> at range, causing "
-              << _ranged_attack_damage << " points of damage !" << std::endl;
-    
+    std::cout << "FR4G-TP <" << _name << "> attacks <" << target << "> at range, causing "
+              << _ranged_attack_damage << " points of damage ! " << "That looks like it hurts!" << std::endl;
 }
 
 void	FragTrap::meleeAttack(std::string const & target)
 {
-    std::cout << "Take that Heyyah! FR4G-TP <" << _name << "> attacks <" << target << "> at melee, causing "
-              << _melee_attack_damage << " points of damage !" << std::endl;
-
+    std::cout << "FR4G-TP <" << _name << "> attacks <" << target << "> at melee, causing "
+              << _melee_attack_damage << " points of damage ! " << "Take that Heyyah!" << std::endl;
 }
 
 void	FragTrap::takeDamage(unsigned int amount)

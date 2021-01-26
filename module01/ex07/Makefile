@@ -2,17 +2,18 @@ NAME=replace
 
 SRC=replace.cpp
 
-OBJ=replace.o
+CC=clang++
+FLAGS=-Wall -Werror -Wextra
+CPP_VER=-std=c++98
+
 all:$(NAME)
 
 $(NAME):
-	clang++ -Wall -Wextra -Werror $(SRC) -c
-	clang++ $(OBJ) -o $(NAME)
+	$(CC) $(FLAGS) $(CPP_VER) $(SRC) -o $(NAME)
 
 clean:
-	rm -rf $(OBJ)
+	rm -rf $(NAME)
 
 fclean: clean
-	rm -rf $(NAME)
 
 re: fclean all

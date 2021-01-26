@@ -1,38 +1,53 @@
 #include <iostream>
 #include "Contact.hpp"
 #include <iomanip>
+#include <string>
 
 const int	max_contacts = 8;
 Contact		contacts[max_contacts];
 int			contact_index = 0;
+bool        isRunning = true;
 
-bool isRunning = true;
-
-void	print_welcome() {
-    std::cout	<< "		   __        __ _____  _       ____   ___   __  __  _____ " << std::endl
-            << "		   \\ \\      / /| ____|| |     / ___| / _ \\ |  \\/  || ____|" << std::endl
-            << "		    \\ \\ /\\ / / |  _|  | |    | |    | | | || |\\/| ||  _|  " << std::endl
-            << "		     \\ V  V /  | |___ | |___ | |___ | |_| || |  | || |___ " << std::endl
-            << "		      \\_/\\_/   |_____||_____| \\____| \\___/ |_|  |_||_____|" << std::endl
-            << "					 ______   ___" << std::endl
-            << "					 |_   _| / _ \\" << std::endl
-            << "					   | |  | | | |" << std::endl
-            << "					   | |  | |_| |" << std::endl
-            << "					   |_|   \\___/" << std::endl
-            << "		 _   _     _     _____  ____    ____   _   _   ___   _   _  _____ " << std::endl
-            << "		| | | |   / \\   |_   _||  _ \\  |  _ \\ | | | | / _ \\ | \\ | || ____|" << std::endl
-            << "		| |_| |  / _ \\    | |  | |_) | | |_) || |_| || | | ||  \\| ||  _|  " << std::endl
-            << "		|  _  | / ___ \\   | |  |  _ <  |  __/ |  _  || |_| || |\\  || |___ " << std::endl
-            << "		|_| |_|/_/   \\_\\  |_|  |_| \\_\\ |_|    |_| |_| \\___/ |_| \\_||_____|" << std::endl << std::endl;
+void	print_welcome() {    
+    std::cout   << "            _    _ _____ _     _____ ________  ___ _____               " << std::endl
+                << "            | |  | |  ___| |   /  __ \\  _  |  \\/  ||  ___|              " << std::endl
+                << "            | |  | | |__ | |   | /  \\/ | | | .  . || |__                " << std::endl
+                << "            | |/\\| |  __|| |   | |   | | | | |\\/| ||  __|               " << std::endl
+                << "            \\  /\\  / |___| |___| \\__/\\ \\_/ / |  | || |___               " << std::endl
+                << "             \\/  \\/\\____/\\_____/\\____/\\___/\\_|  |_/\\____/               " << std::endl
+                << "                                                                    " << std::endl
+                << "                             _____ _____                                                " << std::endl
+                << "                            |_   _|  _  |                                               " << std::endl
+                << "                              | | | | | |                                               " << std::endl
+                << "                              | | | | | |                                               " << std::endl
+                << "                              | | \\ \\_/ /                                               " << std::endl
+                << "                              \\_/  \\___/                                                " << std::endl
+                << "                                                                    " << std::endl
+                << "        ______ _   _ _____ _   _  _____  ______  _____  _____ _   __" << std::endl
+                << "        | ___ \\ | | |  _  | \\ | ||  ___| | ___ \\|  _  ||  _  | | / /" << std::endl
+                << "        | |_/ / |_| | | | |  \\| || |__   | |_/ /| | | || | | | |/ / " << std::endl
+                << "        |  __/|  _  | | | | . ` ||  __|  | ___ \\| | | || | | |    \\ " << std::endl
+                << "        | |   | | | \\ \\_/ / |\\  || |___  | |_/ /\\ \\_/ /\\ \\_/ / |\\  \\" << std::endl
+                << "        \\_|   \\_| |_/\\___/\\_| \\_/\\____/  \\____/  \\___/  \\___/\\_| \\_/" << std::endl << std::endl;
 }
 
 
 std::string	getInput(std::string str) {
     std::string input;
 
-	std::cout << str;
-	std::cin >> input;
-
+    if (!str.empty())
+        std::cout << str << std::endl;
+    while (1) {
+	    std::getline(std::cin, input);
+        if (std::cin.eof())
+        {
+            std::cout << "Bye!" << std::endl;
+            exit(0);
+        }
+        if (!input.empty())
+            break;
+        std::cin.clear();
+    }
     return (input);
 }
 
@@ -83,16 +98,13 @@ void show_contact(int index) {
 }
 
 void show_contacts() {
-    // std::cout << std::string(4 * 11, '-') << std::endl;
     std::string input;
     int         index;
     show_row("index", "first name", "last name", "nickname");
     for (int i = 0; i < contact_index; i++) {
         show_row(std::to_string(i + 1), contacts[i].getFirstName(), contacts[i].getLastName(), contacts[i].getNickName());
     }
-
-    std::cout << "contact index: ";
-    std::cin >> input;
+    input = getInput("contact index:");
     if (isdigit(input[0])) {
         index = std::stoi(input);
         if (index > 0 && index <= contact_index) {
@@ -107,15 +119,13 @@ void show_contacts() {
 
 void check_input() {
     std::string cmd;
-    std::cout   << "use the commands : ADD, SEARCH or EXIT" << std::endl
-				<< "CMD: ";
-    std::cin >> cmd;
+    std::cout   << "use the commands : ADD, SEARCH or EXIT" << std::endl;
+    cmd = getInput("");
     if (cmd == "ADD") {
 		if (contact_index >= max_contacts)
 			std::cout << "You can't have more than " << max_contacts << " contacts!" << std::endl;
         else {
 			add_contact();
-        	std::cout << contacts[Contact::getCount() - 1].getDarkestSecret() << std::endl;
 		}
 	} else if (cmd == "SEARCH") {
         if (contact_index > 0) {

@@ -7,9 +7,11 @@
 class ZombieHorde
 {
 private:
-    Zombie* _zombieHorde;
-    size_t  _zombieNum;
+    Zombie*     _zombieHorde;
+    size_t      _zombieNum;
+    std::string _type;
 public:
+    ZombieHorde(size_t n);
     ZombieHorde(size_t n, std::string type);
     ~ZombieHorde();
     void    announce() const;

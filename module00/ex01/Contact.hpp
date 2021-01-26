@@ -15,7 +15,6 @@ private:
     std::string _favoriteMeal;
     std::string _underwearColor;
     std::string _darkestSecret;
-    static int  _count;
 public:
     Contact();
     ~Contact();
@@ -32,7 +31,6 @@ public:
     void setUnderwearColor(std::string underwearColor);
     void setDarkestSecret(std::string darkestSecret);
 
-    static int	getCount();
     std::string	getFirstName() const;
     std::string getLastName() const;
     std::string getNickName() const;

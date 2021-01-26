@@ -23,9 +23,8 @@ Zombie* ZombieEvent::newZombie(std::string name) const {
     return zombie;
 }
 
-Zombie* ZombieEvent::randomChump() const {
+void    ZombieEvent::randomChump() const {
     int r = std::rand() % MAX_NAMES;
-    Zombie* zombie = newZombie(names[r]);
-    zombie->announce();
-    return zombie;
+    Zombie zombie = Zombie(names[r], _type);
+    zombie.announce();
 }

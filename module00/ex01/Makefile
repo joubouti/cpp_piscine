@@ -2,10 +2,14 @@ NAME=phonebook
 
 SRC=phonebook.cpp Contact.cpp
 
+CC=clang++
+FLAGS=-Wall -Werror -Wextra
+CPP_VER=-std=c++98
+
 all:$(NAME)
 
 $(NAME):
-	clang++ -Wall -Wextra -Werror $(SRC) -o $(NAME)
+	$(CC) $(FLAGS) $(CPP_VER) $(SRC) -o $(NAME)
 
 clean:
 	rm -rf $(NAME)

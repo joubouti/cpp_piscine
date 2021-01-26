@@ -1,18 +1,11 @@
 #include "Contact.hpp"
 
-int 	Contact::_count = 0;
-
 Contact::Contact() {
-    _count++;
 }
 
 Contact::~Contact() {
-    _count--;
 }
 
-int Contact::getCount() {
-    return _count;
-}
 
 void Contact::setFirstName(std::string firstName) {
     _firstName = firstName;

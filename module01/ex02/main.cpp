@@ -40,14 +40,8 @@ int main( void ) {
 
     // randomChump method
 
-    Zombie* thirdScreamer = zombieEvent.randomChump();
-    Zombie* fourthScreamer = zombieEvent.randomChump();
-    
-    thirdScreamer->announce();
-    fourthScreamer->announce();
-
-    delete thirdScreamer;
-    delete fourthScreamer;
+    zombieEvent.randomChump();
+    zombieEvent.randomChump();
 
     return 0;
 }

@@ -37,7 +37,7 @@ int     Fixed::getRawBits( void ) const {
 }
 
 void    Fixed::setRawBits(int const raw) {
-    std::cout << "Default constructor called" << std::endl;
+    std::cout << "setRawBits member function called with value of " << raw << std::endl;
     _fixed_point = raw;
 }
 

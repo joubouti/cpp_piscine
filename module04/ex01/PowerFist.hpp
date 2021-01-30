@@ -10,7 +10,7 @@ public:
     PowerFist();
     PowerFist(PowerFist const &);
     PowerFist(std::string const & name, int apcost, int damage);
-    ~PowerFist();
+    virtual ~PowerFist();
 
     PowerFist&    operator=(PowerFist const &);
     void            attack() const;

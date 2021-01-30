@@ -3,9 +3,7 @@
 Enemy::Enemy() {
 }
 
-Enemy::Enemy(int hp, std::string const & type) {
-    _hp = hp;
-    _type = type;
+Enemy::Enemy(int hp, std::string const & type) : _hp(hp), _type(type) {
 }
 
 Enemy::Enemy(Enemy const & enemy) {

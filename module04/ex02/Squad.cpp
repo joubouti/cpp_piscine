@@ -1,10 +1,8 @@
 #include "Squad.hpp"
 
 
-Squad::Squad()
+Squad::Squad() : _units(NULL), _count(0)
 {
-    _units = NULL;    
-    _count = 0;
 }
 
 Squad::Squad(Squad const & squad) {
@@ -21,9 +19,16 @@ Squad&          Squad::operator=(Squad const & squad) {
     if (squad._units)
         _units = new t_list;
     _count = squad._count;
-    for (int i = 0; i < _count; i++) {
-        _units->unit = squad._units->unit->clone();
-        _units->next = NULL;
+    t_list  *iter = squad._units;
+    t_list  *tmp = _units;
+    while (iter) {
+        if (iter != squad._units) {
+            tmp->next = new t_list;
+            tmp = tmp->next;
+        }
+        tmp->unit = iter->unit->clone();
+        tmp->next = NULL;
+        iter = iter->next;
     }
     return *this;
 }
@@ -52,10 +57,11 @@ int             Squad::push(ISpaceMarine* spaceMarine) {
         _units = new t_list;
         _units->unit = spaceMarine;
         _units->next = NULL;
-    }
-    else {
+    } else {
         t_list* item = _units;
 
+        if (item->unit == spaceMarine)
+                return _count;
         while (item->next) {
             item = item->next;
             if (item->unit == spaceMarine)

@@ -4,8 +4,7 @@ RadScorpion::RadScorpion() : Enemy(80, "RadScorpion") {
     std::cout << "* click click click *" << std::endl;
 }
 
-RadScorpion::RadScorpion(RadScorpion const & radScorpion) : Enemy(80, "RadScorpion") {
-    *this = radScorpion;
+RadScorpion::RadScorpion(RadScorpion const & radScorpion) : Enemy(radScorpion) {
     std::cout << "* click click click *" << std::endl;
 }
 
@@ -24,5 +23,5 @@ RadScorpion&    RadScorpion::operator=(RadScorpion const & radScorpion) {
 }
 
 void    RadScorpion::takeDamage(int damage) {
-    Enemy::takeDamage(damage - 3);
+    Enemy::takeDamage(damage);
 }

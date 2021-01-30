@@ -6,8 +6,7 @@ PlasmaRifle::PlasmaRifle() : AWeapon("Plasma Rifle", 5, 21) {
 PlasmaRifle::PlasmaRifle(std::string const & name, int apcost, int damage) : AWeapon(name, apcost, damage) {
 }
 
-PlasmaRifle::PlasmaRifle(PlasmaRifle const & pr) {
-    *this = pr;
+PlasmaRifle::PlasmaRifle(PlasmaRifle const & pr) : AWeapon(pr) {
 }
 
 PlasmaRifle::~PlasmaRifle()

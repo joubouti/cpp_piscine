@@ -6,10 +6,8 @@ Character::Character() {
 }
 
 
-Character::Character(std::string const & name) {
-    _name = name;
-    _ap = _max_ap;
-    _weapon = NULL;
+Character::Character(std::string const & name)
+                    : _name(name), _ap(_max_ap), _weapon(NULL) {
 }
 Character::Character(Character const & character) {
     *this = character;
@@ -37,12 +35,12 @@ void                Character::equip(AWeapon* weapon) {
 }
 
 void                Character::attack(Enemy* enemy) {
-    if (_ap >= _weapon->getAPCost() && _weapon) {
+    if (_weapon && _ap >= _weapon->getAPCost()) {
         _ap -= _weapon->getAPCost();
         std::cout << _name << " attacks " << enemy->getType() << " with a " << _weapon->getName() << std::endl;
         _weapon->attack();
         enemy->takeDamage(_weapon->getDamage());
-        if (enemy->getHP() == 0)
+        if (enemy->getHP() <= 0)
             delete enemy;
     }
 }

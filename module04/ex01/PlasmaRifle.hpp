@@ -10,7 +10,7 @@ public:
     PlasmaRifle();
     PlasmaRifle(PlasmaRifle const &);
     PlasmaRifle(std::string const & name, int apcost, int damage);
-    ~PlasmaRifle();
+    virtual ~PlasmaRifle();
 
     PlasmaRifle&    operator=(PlasmaRifle const &);
     void            attack() const;

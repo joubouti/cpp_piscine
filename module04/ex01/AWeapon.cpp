@@ -3,10 +3,8 @@
 AWeapon::AWeapon() {
 }
 
-AWeapon::AWeapon(std::string const & name, int apcost, int damage) {
-    _name = name;
-    _apcost = apcost;
-    _damage = damage;
+AWeapon::AWeapon(std::string const & name, int apcost, int damage)
+                :_name (name), _damage(damage), _apcost(apcost) {
 }
 
 AWeapon::AWeapon(AWeapon const & weapon) {

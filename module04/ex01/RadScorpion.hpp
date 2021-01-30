@@ -9,7 +9,7 @@ public:
     RadScorpion();
     RadScorpion(RadScorpion const &);
     RadScorpion(int hp, std::string const & type);
-    ~RadScorpion();
+    virtual ~RadScorpion();
 
     RadScorpion&    operator=(RadScorpion const &);
 

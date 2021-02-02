@@ -1,9 +1,11 @@
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(std::string const & target) : Form("roboto my request", 72, 45), _target(target) {
+RobotomyRequestForm::RobotomyRequestForm(std::string const & target) : Form("robotomy request", 72, 45), _target(target) {
+    srand(time(NULL));
 }
 
 RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const & s) : Form(s) {
+    srand(time(NULL));
 }
 
 RobotomyRequestForm::~RobotomyRequestForm() {

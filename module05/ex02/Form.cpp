@@ -78,16 +78,3 @@ std::ostream&   operator<<(std::ostream& out, Form const & form) {
     return (out << form.getName() << ", signed: " << isSigned << ",  grade required to sign: " << form.getSignGrade()
          << ", grade required to execute: " << form.getExecuteGrade() << std::endl);
 }
-
-
-// void                Form::beSigned(Bureaucrat const & bureaucrat) {
-//     try {
-//         bureaucrat.signForm(*this);
-//     }
-//     catch(std::exception const & e) {
-//         std::cout << bureaucrat.getName() << " cannot sign " << _name << " because " << e.what() << std::endl;
-//     }
-    
-// }
-
-

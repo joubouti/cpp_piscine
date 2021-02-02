@@ -12,7 +12,16 @@ bool impossible = false;
 
 bool is_number(const std::string& s)
 {
-    if (s.at(s.length() - 1) == 'f')
+    int count = 0;
+    for (int i = 0; s[i]; i++) {
+        if (s[i] == '.')
+            count++;
+        if (count > 1)
+            return (0);
+    }
+    if ( std::strspn( s.c_str(), "." ) > 1)
+        return (0);
+    else if (s.at(s.length() - 1) == 'f')
         return( std::strspn( s.substr(0, s.length() - 1).c_str(), "-.0123456789" ) == (s.size() - 1) );
     else
         return( std::strspn( s.c_str(), "-.0123456789" ) == s.size() );
@@ -70,22 +79,31 @@ int main(int argc, char *argv[]) {
     if (argc == 2) {
         std::string decimal = argv[1];
         try {
-            std::stringstream ss(decimal);
-            long double value;
-            ss >> value;
+            long double value = 0;
+            if (decimal.length() == 1 && !isnumber(decimal[0]))
+                value = static_cast<long double>(decimal[0]);
+            else {
+                try
+                {
+                    value = std::stod(decimal);
+                    if (!is_number(decimal)) {
 
-            if (!is_number(decimal)) {
-
-                if (decimal == "nan" || decimal == "nanf")
-                    value = nan("");
-                else if (decimal == "+inf" || decimal == "+inff")
-                    value = INFINITY;
-                else if (decimal == "-inf" || decimal == "-inff")
-                    value = -INFINITY;
-                else
+                        if (decimal == "nan" || decimal == "nanf")
+                            value = nan("");
+                        else if (decimal == "+inf" || decimal == "+inff" || decimal == "inf" || decimal == "inff")
+                            value = INFINITY;
+                        else if (decimal == "-inf" || decimal == "-inff")
+                            value = -INFINITY;
+                        else
+                            impossible = true;
+                    }    
+                }
+                catch(const std::exception& e)
+                {
                     impossible = true;
+                }
+                
             }
-            
             toChar(value);
             toInt(value);
             toFloat(value);
@@ -94,7 +112,7 @@ int main(int argc, char *argv[]) {
             std::cout << "error: " << e.what() << std::endl;
         }
     } else {
-        std::cout << "Usage: ./convert [decimal]" << std::endl;
+        std::cout << "Usage: ./convert [value]" << std::endl;
     }
     return 0;
 }

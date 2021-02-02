@@ -20,7 +20,7 @@ int main () {
     b2.executeForm(f1); // X
     
     Bureaucrat b3("b3", 130);
-    b3.signForm(f1); // O
+    b3.signForm(f1); // X
     b3.executeForm(f1); // O
 
     // RobotomyRequestForm

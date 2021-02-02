@@ -8,7 +8,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name) {
     _grade = grade;
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat const & b) {
+Bureaucrat::Bureaucrat(Bureaucrat const & b) : _name(b._name) {
     *this = b;
 }
 
@@ -17,7 +17,7 @@ Bureaucrat::~Bureaucrat() {
 
 
 Bureaucrat&         Bureaucrat::operator=(Bureaucrat const & b) {
-    this->_grade = b._grade;
+    _grade = b._grade;
     return *this;
 }
 
@@ -64,14 +64,4 @@ void        Bureaucrat::signForm(Form& form) const {
     {
         std::cout << _name << " cannot sign " << form.getName() << " because " << e.what() << std::endl;
     }
-    
 }
-// void        Bureaucrat::signForm(Form const & form) const {
-//     if (_grade >= form.getSignGrade()) {
-//         if (form.isSigned()) {
-//             throw AlreadySigned();
-//         }
-//     } else {
-//         throw GradeTooLowException();
-//     }
-// }
